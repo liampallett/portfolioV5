@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+const { title, image, description, link } = Astro.props;
+---
+
+<article class="project-card">
+    <Image src={image} alt={`An image from my ${title} project.`} class="project-image"></Image>
+    <div class="project-content">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <a href={link} target="_blank">View source ➚<i class="fa-brands fa-github"></i></a>
+    </div>
+</article>
+
+<style>
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: scale(1.05);
+    }
+
+    .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+    }
+</style>

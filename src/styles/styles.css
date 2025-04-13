@@ -8,6 +8,18 @@ body {
   padding: 0.6rem;
   overflow: auto;
   background-color: antiquewhite;
+  animation: pageLoad 0.5s ease-out forwards;
+}
+
+@keyframes pageLoad {
+  0% {
+    opacity: 0;
+    transform: translateY(2.4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 * {
@@ -55,4 +67,11 @@ a:hover {
     display: flex;
     flex-direction: column;
   }
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
 }

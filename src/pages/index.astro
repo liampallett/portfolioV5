@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import pfp from "../../src/images/pfp.jpg"
+
+import Project from "../components/project.astro";
 ---
 
 <Layout title="Made By Liam">
@@ -9,16 +11,27 @@ import pfp from "../../src/images/pfp.jpg"
         <h1>Who I Am</h1>
         <div class="content">
             <Image src={pfp} alt="A picture of me in a forest environment." class="pfp"></Image>
-            <p>Hi! I'm Liam. I'm a 18 year old computer science student studying my A-Levels. When I'm not programming, you'll catch me playing hockey, listening to music, or exploring the outdoors.</p>
+            <p>Hi! I'm Liam. I'm a 18 year old computer science student studying my A-Levels. 
+                When I'm not programming, you'll catch me playing hockey, listening to music, or exploring the outdoors.
+                I'm always open for a challenge, so feel free to hit me up on any of my socials!
+            </p>
         </div>
     </div>
     <div class="what-i-do">
         <h1>What I Do</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quae aut fugiat adipisci vel non sunt facilis dignissimos dolore quas sequi error doloribus, optio voluptates vero nisi perspiciatis deserunt quam.</p>
+        <p>I'm a learning software engineer with a passion for web development. 
+            I've been practicing HTML, CSS and JS as a hobby for the past 3 years, and I'm now implementing modern frameworks like Astro to build fast, static websites.
+            I believe that the best way to develop is to create, break, and build it up even better.
+            Right now, when I'm not working on other projects, I'm focused on improving my understanding of full-stack development to create tools that elevate people's lives.
+        </p>
     </div>
     <div class="what-ive-made">
         <h1>What I've Made</h1>
         <p>Below is a selection of my favourite projects I've made.</p>
+        <div class="project-list">
+            <Project title="Test" image={pfp} description="lorem ipsum" link="https://github.com/liampallett/portfolioV5"></Project>
+            <Project title="Test" image={pfp} description="lorem ipsum" link="https://github.com/liampallett/portfolioV5"></Project>
+        </div>
         <p>See a full overview of what I've made over on my ➚<a href="projects">projects</a> page.</p>
     </div>
 </Layout>
