@@ -2,13 +2,89 @@
 import Layout from "../../layouts/Layout.astro";
 
 const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true}));
+const sortedPosts = allPosts.sort((a, b) => {
+  const postA = a as { frontmatter: { pubDate: string } };
+  const postB = b as { frontmatter: { pubDate: string } };
+
+  return new Date(postB.frontmatter.pubDate).getTime() - new Date(postA.frontmatter.pubDate).getTime();
+});
+
 ---
 
 <Layout title="Blog">
     <h1>Blog Posts</h1>
     <p>This is where I will share updates on projects I'm working on, school updates, or other random thoughts about tech.</p>
-
-    {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a> Published: {post.frontmatter.pubDate}</li>)}
-
-    <a href="../rss.xml">RSS Feed</a>
+    
+    <div class="blog-list">
+        {sortedPosts.map((post: any) => (
+          <a href={post.url} class="blog-card-link">
+            <article class="blog-card">
+              <h2>{post.frontmatter.title}</h2>
+              <p class="description">{post.frontmatter.description}</p>
+              <time datetime={post.frontmatter.pubDate}>
+                {new Date(post.frontmatter.pubDate).toLocaleDateString("en-GB", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            </article>
+          </a>
+        ))}
+      </div>
+      
+         
+      
+    <a href="../rss.xml" class="rss-feex">RSS Feed</a>
 </Layout>
+
+<style>
+    .blog-list {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card {
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.blog-card h2 {
+  margin: 0;
+}
+
+.blog-card .description {
+  margin: 0.5rem 0 0 0;
+  color: #444;
+}
+
+.blog-card time {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.rss-feex {
+    display: flex;
+    justify-content: center;
+}
+</style>
