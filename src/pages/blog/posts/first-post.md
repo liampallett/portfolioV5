@@ -22,4 +22,4 @@ I'll be working on a variety of projects like more websites/web apps. I've been 
 
 I hope this blog will prove useful for anyone following the same journey that I am. Thanks for reading, and I hope you'll follow me on my journey! <3
 
-[_Back to Blog_](../../blog/)
+[_Back to Blog_](/blog/)
