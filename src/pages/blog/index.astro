@@ -14,6 +14,7 @@ const sortedPosts = allPosts.sort((a, b) => {
 <Layout title="Blog">
     <h1>Blog Posts</h1>
     <p>This is where I will share updates on projects I'm working on, school updates, or other random thoughts about tech.</p>
+    <i><p class="post-count">Showing {sortedPosts.length} post(s).</p></i>
     
     <div class="blog-list">
         {sortedPosts.map((post: any) => (
@@ -43,6 +44,7 @@ const sortedPosts = allPosts.sort((a, b) => {
   display: grid;
   gap: 1.5rem;
   padding: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .blog-card-link {
