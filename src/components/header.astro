@@ -1,14 +1,60 @@
-<header>
+<header class="topNav" id="topNav">
+    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+      <i class="fa-solid fa-bars"></i>
+    </a>
     <a href="">home</a>
     <a href="projects">projects</a>
     <a href="blog">blog</a>
     <a href="contact">contact</a>
-</header>
+  </header>
+  
+  <style>
+    .topNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  overflow: hidden;
+}
 
-<style>
-    header {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-</style>
+.topNav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .topNav a:not(.icon) {
+    display: none;
+  }
+
+  .topNav .icon {
+    display: block;
+    margin-right: auto;
+  }
+
+  .topNav.responsive a {
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+
+  .topNav.responsive {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+  </style>
+  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const icon = document.querySelector(".icon");
+  if (icon) {
+    icon.addEventListener("click", () => {
+      const nav = document.getElementById("topNav");
+      if (nav) {
+        nav.classList.toggle("responsive");
+      }
+    });
+  }
+});
+</script>
