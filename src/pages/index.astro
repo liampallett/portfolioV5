@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import pfp from "../../src/images/pfp.jpg"
 ---
 
 <Layout title="Made By Liam">
     <div class="who-i-am">
         <h1>Who I Am</h1>
         <div class="content">
-            <img src="./src/images/pfp.jpg" class="pfp">
+            <Image src={pfp} alt="A picture of me in a forest environment." class="pfp"></Image>
             <p>Hi! I'm Liam. I'm a 18 year old computer science student studying my A-Levels. When I'm not programming, you'll catch me playing hockey, listening to music, or exploring the outdoors.</p>
         </div>
     </div>
