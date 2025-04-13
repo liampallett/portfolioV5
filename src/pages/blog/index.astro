@@ -7,5 +7,8 @@ const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true}))
 <Layout title="Blog">
     <h1>Blog Posts</h1>
     <p>This is where I will share updates on projects I'm working on, school updates, or other random thoughts about tech.</p>
+
     {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a> Published: {post.frontmatter.pubDate}</li>)}
+
+    <a href="../rss.xml">RSS Feed</a>
 </Layout>
