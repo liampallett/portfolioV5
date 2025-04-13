@@ -32,3 +32,20 @@ a:hover {
   color: #535353;
   text-decoration: underline;
 }
+
+.pfp {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.who-i-am {
+  width: 100%;
+}
+
+.who-i-am .content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
