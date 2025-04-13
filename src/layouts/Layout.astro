@@ -15,6 +15,17 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 
 		<title>{title}</title>
+
+		<script>
+			if ('scrollRestoration' in history) {
+			  history.scrollRestoration = 'manual';
+			}
+			document.body.classList.add('locked');
+			window.addEventListener('load', () => {
+			  document.body.classList.remove('locked');
+			  setTimeout(() => window.scrollTo(0, 0), 10);
+			});
+		  </script>
 	</head>
 	
 	<body>
